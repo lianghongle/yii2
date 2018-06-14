@@ -1,0 +1,78 @@
+<?php
+$config = [
+    'components' => [
+        'db'     => [
+            'class'    => 'yii\db\Connection',
+            'dsn'      => 'mysql:host=172.16.158.1;dbname=yii2',
+            'username' => 'root',
+            'password' => '123456',
+            'charset'  => 'utf8',
+            'tablePrefix'        => 'yii2_',   //加入前缀名称fc_
+
+            // 从库的通用配置
+            //            'slaveConfig' => [
+            //                'username' => 'slave',
+            //                'password' => '',
+            //                'attributes' => [
+            //                    // 使用一个更小的连接超时
+            //                    PDO::ATTR_TIMEOUT => 10,
+            //                ],
+            //            ],
+
+            // 从库的配置列表
+            //            'slaves' => [
+            //                ['dsn' => 'dsn for slave server 1'],
+            //                ['dsn' => 'dsn for slave server 2'],
+            //                ['dsn' => 'dsn for slave server 3'],
+            //                ['dsn' => 'dsn for slave server 4'],
+            //            ],
+        ],
+        'mailer' => [
+            'class'            => 'yii\swiftmailer\Mailer',
+            'viewPath'         => '@common/mail',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure a transport
+            // for the mailer to send real emails.
+            'useFileTransport' => true,
+        ],
+    ],
+];
+
+if (!YII_ENV_TEST) {
+    // configuration adjustments for 'dev' environment
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class'               => 'yii\debug\Module',
+        'controllerNamespace' => 'strong\debug\controllers',
+        'enableDebugLogs'     => true,
+
+        //如果是访问虚拟机，要用和虚拟机一个网段的那个ip
+        'allowedIPs'          => ['172.16.158.1', '172.16.158.160', '127.0.0.1', '::1'],
+        //		'allowedIPs' => ['*'],
+
+        'panels' => [
+            'elasticsearch' => [
+                'class' => 'yii\\elasticsearch\\DebugPanel',
+            ],
+            'mongodb'       => [
+                'class' => 'yii\\mongodb\\debug\\MongoDbPanel',
+            ],
+            'other'         => [
+                'class' => 'strong\debug\panels\OtherPanel'
+            ],
+        ],
+    ];
+
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class'      => 'yii\gii\Module',
+        'allowedIPs' => ['172.16.158.1', '127.0.0.1', '::1', '192.168.0.*'], // adjust this to your needs
+        'generators' => [
+            'mongoDbModel' => [
+                'class' => 'yii\mongodb\gii\model\Generator'
+            ]
+        ]
+    ];
+}
+
+return $config;

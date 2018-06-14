@@ -25,18 +25,19 @@ DIRECTORY STRUCTURE
 -------------------
 
 ```
-common
+common                   公用
     config/              contains shared configurations
     mail/                contains view files for e-mails
     models/              contains model classes used in both backend and frontend
+    service/             逻辑封装
     tests/               contains tests for common classes    
-console
+app_console              命令行
     config/              contains console configurations
     controllers/         contains console controllers (commands)
     migrations/          contains database migrations
     models/              contains console-specific model classes
     runtime/             contains files generated during runtime
-backend
+app_backend              管理后台
     assets/              contains application assets such as JavaScript and CSS
     config/              contains backend configurations
     controllers/         contains Web controller classes
@@ -45,7 +46,27 @@ backend
     tests/               contains tests for backend application    
     views/               contains view files for the Web application
     web/                 contains the entry script and Web resources
-frontend
+app_frontend             前端
+    assets/              contains application assets such as JavaScript and CSS
+    config/              contains frontend configurations
+    controllers/         contains Web controller classes
+    models/              contains frontend-specific model classes
+    runtime/             contains files generated during runtime
+    tests/               contains tests for frontend application
+    views/               contains view files for the Web application
+    web/                 contains the entry script and Web resources
+    widgets/             contains frontend widgets
+app_api                  纯 API
+    assets/              contains application assets such as JavaScript and CSS
+    config/              contains frontend configurations
+    controllers/         contains Web controller classes
+    models/              contains frontend-specific model classes
+    runtime/             contains files generated during runtime
+    tests/               contains tests for frontend application
+    views/               contains view files for the Web application
+    web/                 contains the entry script and Web resources
+    widgets/             contains frontend widgets
+app_test                 开发测试
     assets/              contains application assets such as JavaScript and CSS
     config/              contains frontend configurations
     controllers/         contains Web controller classes
@@ -57,4 +78,5 @@ frontend
     widgets/             contains frontend widgets
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
+strong/                  自定义修改
 ```

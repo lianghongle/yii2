@@ -1,0 +1,21 @@
+{
+    "name": "xmissy/yii2-admin",
+    "description": "yii2-admin",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","admin","rbac"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "lhl",
+            "email": "lianghongle@163.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "xmissy\\admin\\": ""
+        }
+    }
+}
