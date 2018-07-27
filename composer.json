@@ -29,7 +29,10 @@
         "mdmsoft/yii2-admin": "^2.0",
         "phpoffice/phpspreadsheet": "dev-master",
         "linslin/yii2-curl": "dev-master",
-        "xmissy/math": "dev-master"
+        "xmissy/math": "dev-master",
+
+        "qcloudsms/qcloudsms_php": "0.1.*",
+        "overtrue/easy-sms": "^1.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
