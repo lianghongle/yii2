@@ -23,7 +23,7 @@ class ArrayHelper extends \yii\helpers\ArrayHelper
         foreach ($arr as $key => $val) {
             if ($val[$pidName] == $pid) {
                 $val[$childrenName] = [];
-                self::GetTree($arr, $val[$idName], $val[$childrenName]);
+                self::getTree($arr, $val[$idName], $val[$childrenName]);
                 $result[] = $val;
                 unset($arr[$key]);
             }
@@ -42,7 +42,7 @@ class ArrayHelper extends \yii\helpers\ArrayHelper
     {
         if (is_array($arr)) {
             foreach ($arr as $key => $value) {
-                $arr[$key] = array_map_recursive($value, $callback);
+                $arr[$key] = self::array_map_recursive($value, $callback);
             }
         } else {
             $arr = $callback($arr);
