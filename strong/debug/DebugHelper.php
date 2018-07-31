@@ -38,7 +38,7 @@ class DebugHelper
 
         if(class_exists('yii\\elasticsearch\\DebugPanel')){
             $config['modules']['debug']['panels']['elasticsearch'] = [
-                'class' => \yii2\elasticsearch\DebugPanel::class,
+                'class' => \yii\elasticsearch\DebugPanel::class,
             ];
         }
 
@@ -62,7 +62,7 @@ class DebugHelper
 
         if(class_exists('yii\mongodb\gii\model\Generator')){
             $config['modules']['debug']['panels']['elasticsearch'] = [
-                'class' => \yii2\elasticsearch\DebugPanel::class,
+                'class' => \yii\elasticsearch\DebugPanel::class,
             ];
             $config['modules']['gii']['generators']['mongoDbModel']['class'] = \yii\mongodb\gii\model\Generator::class;
         }
