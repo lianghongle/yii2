@@ -111,4 +111,13 @@ return array (
       '@yii/sphinx' => $vendorDir . '/yiisoft/yii2-sphinx/src',
     ),
   ),
+  'yiisoft/yii2-httpclient' => 
+  array (
+    'name' => 'yiisoft/yii2-httpclient',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@yii/httpclient' => $vendorDir . '/yiisoft/yii2-httpclient/src',
+    ),
+  ),
 );
